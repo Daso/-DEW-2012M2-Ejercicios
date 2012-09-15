@@ -34,4 +34,23 @@ describe Calculadora do
       @calculadora.multiplica(5, 4).should == 20
   	end	
   end	
+
+  describe "#not_zero" do
+    it "should return false if the number is 0" do
+      @calculadora.not_zero(0).should == false
+    end
+  end
+  
+  describe "#not_zero" do
+    it "should return true if the number is not 0" do
+		@calculadora.not_zero(5).should == true
+    end
+  end
+
+  describe "#divide" do
+    it "should return 5 when dividing 20 by 4" do
+      @calculadora.divide(20,4) == 5
+    end
+  end
+
 end
