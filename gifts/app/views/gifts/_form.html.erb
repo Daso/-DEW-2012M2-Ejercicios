@@ -16,6 +16,12 @@
     <%= f.text_field :name %>
   </div>
   <div class="field">
+    <%= f.label "precio" %><br />
+    <%= f.text_field :price %>
+  </div>
+  
+  
+  <div class="field">
     <%= f.label "nombre de la persona" %><br />
     <%= f.collection_select :person_id, Person.all, :id, :name, :prompt => true %>
 	<!--Esto es un comentario -->
