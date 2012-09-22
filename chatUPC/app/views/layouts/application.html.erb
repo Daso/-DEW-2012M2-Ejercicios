@@ -5,6 +5,37 @@
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
+  <!--Esto es copiado de pusher-->
+
+  <script src="http://js.pusher.com/1.12/pusher.min.js" type="text/javascript"></script>
+  <script type="text/javascript">
+    // Enable pusher logging - don't include this in production
+    Pusher.log = function(message) {
+      if (window.console && window.console.log) window.console.log(message);
+    };
+
+    // Flash fallback logging - don't include this in production
+    WEB_SOCKET_DEBUG = true;
+
+    var pusher = new Pusher('1821d05600c8f7bcfad1');
+    var channel = pusher.subscribe('DEW2012');
+    channel.bind('message:create', function(data) {
+
+    	var message = "<li id='message_"+ data.id + "'>"
+    	message += data.name+": " + data.content
+    	message += "</li>"
+
+    	$("#chat_container").append(message);
+    	$("#message_content").val("");
+    	$("#message_content").focus();
+
+
+      
+
+
+    });
+  </script>
+
 </head>
 <body>
 
